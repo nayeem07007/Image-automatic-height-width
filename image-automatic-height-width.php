@@ -32,3 +32,7 @@ function iahw_enqueue_scrpt() {
 }
 
 add_action('wp_enqueue_scripts', 'iahw_enqueue_scrpt');
+
+//  add admin template 
+
+require_once __DIR__.'/admin/init.php';
