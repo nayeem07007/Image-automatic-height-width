@@ -29,6 +29,15 @@ function iahw_enqueue_scrpt() {
 
     wp_enqueue_script( 'iahw_script', plugin_dir_url( __FILE__ ) . 'assets/js/scrpt.js', ['jquery'],  IMAGE_AUTOMATIC_HEIGHT_WIDTH_VERSION, 'true');
 
+    $iahw_width = isset(get_option('iahw_options' )['iahw_width'] ) && (get_option('iahw_options' )['iahw_width'] != 0) ? get_option('iahw_options' )['iahw_width'] : 600; 
+    $iahw_height = isset(get_option('iahw_options' )['iahw_height'] ) && (get_option('iahw_options' )['iahw_height'] != 0) ? get_option('iahw_options' )['iahw_height'] : 370; 
+    
+    wp_localize_script( 'iahw_script', 'iahw_get_size',
+    array( 
+        'height' =>  $iahw_width,
+        'width' => $iahw_height,
+     )
+   );
 }
 
 add_action('wp_enqueue_scripts', 'iahw_enqueue_scrpt');

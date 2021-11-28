@@ -20,15 +20,7 @@ class Automatice_height_width_admin
      */
     public function add_plugin_page()
     {
-        // This page will be under "Settings"
-        // add_options_page(
-        //     'Settings Admin', 
-        //     'My Settings', 
-        //     'manage_options', 
-        //     'my-setting-admin', 
-        //     array( $this, 'create_admin_page' )
-        // );
-
+       
         add_menu_page(
             'Auto Height Width',
             'Height Width',
@@ -45,7 +37,7 @@ class Automatice_height_width_admin
     public function create_admin_page()
     {
         // Set class property
-        $this->options = get_option( 'my_option_name' );
+        $this->options = get_option( 'iahw_options' );
         ?>
         <div class="wrap">
             <h1><?php echo esc_html__( 'Image Automatic Height Width' ) ?></h1>
@@ -68,7 +60,7 @@ class Automatice_height_width_admin
     {        
         register_setting(
             'my_option_group', // Option group
-            'my_option_name', // Option name
+            'iahw_options', // Option name
             array( $this, 'sanitize' ) // Sanitize
         );
 
@@ -81,15 +73,15 @@ class Automatice_height_width_admin
 
         add_settings_field(
             'iahw_width', // ID
-            'Image Width(Px)', // Title 
+            'Image Width(PX)', // Title 
             array( $this, 'iahw_width_callback' ), // Callback
             'my-setting-admin', // Page
             'setting_section_id' // Section           
         );      
 
         add_settings_field(
-            'title', 
-            'Title', 
+            'iahw_height', 
+            'Image Height(PX)', 
             array( $this, 'title_callback' ), 
             'my-setting-admin', 
             'setting_section_id'
@@ -107,8 +99,8 @@ class Automatice_height_width_admin
         if( isset( $input['iahw_width'] ) )
             $new_input['iahw_width'] = absint( $input['iahw_width'] );
 
-        if( isset( $input['title'] ) )
-            $new_input['title'] = sanitize_text_field( $input['title'] );
+        if( isset( $input['iahw_height'] ) )
+            $new_input['iahw_height'] = absint( $input['iahw_height'] );
 
         return $new_input;
     }
@@ -127,7 +119,7 @@ class Automatice_height_width_admin
     public function iahw_width_callback()
     {
         printf(
-            '<input type="text" id="iahw_width" name="my_option_name[iahw_width]" value="%s" />',
+            '<input type="text" id="iahw_width" name="iahw_options[iahw_width]" value="%s" />',
             isset( $this->options['iahw_width'] ) ? esc_attr( $this->options['iahw_width']) : ''
         );
     }
@@ -138,8 +130,8 @@ class Automatice_height_width_admin
     public function title_callback()
     {
         printf(
-            '<input type="text" id="title" name="my_option_name[title]" value="%s" />',
-            isset( $this->options['title'] ) ? esc_attr( $this->options['title']) : ''
+            '<input type="text" id="iahw_height" name="iahw_options[iahw_height]" value="%s" />',
+            isset( $this->options['iahw_height'] ) ? esc_attr( $this->options['iahw_height']) : ''
         );
     }
 }

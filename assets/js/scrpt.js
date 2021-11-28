@@ -9,9 +9,9 @@ jQuery(function( $ ) {
  if(image.length > 0) {
 
    image.each(function(){
-
-       let imgHeight = $(this).height() === 0 ? '370' : $(this).height();
-       let imgWidth = $(this).width() === 0 ? '600' : $(this).width();
+        console.log(iahw_get_size);
+       let imgHeight = $(this).height() === 0 ? iahw_get_size.height : $(this).height();
+       let imgWidth = $(this).width() === 0 ? iahw_get_size.width : $(this).width();
 
        if(typeof $(this).attr('width') === 'undefined') {
         $(this).attr('width', Math.round(imgWidth));
