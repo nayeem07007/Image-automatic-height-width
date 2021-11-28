@@ -9,7 +9,7 @@ jQuery(function( $ ) {
  if(image.length > 0) {
 
    image.each(function(){
-        console.log(iahw_get_size);
+        
        let imgHeight = $(this).height() === 0 ? iahw_get_size.height : $(this).height();
        let imgWidth = $(this).width() === 0 ? iahw_get_size.width : $(this).width();
 
