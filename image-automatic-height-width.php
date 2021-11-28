@@ -6,10 +6,10 @@ defined( 'ABSPATH' ) || exit;
  * Description:  Fix image elements do not have explicit width and height 
  * Plugin URI: https://loyalcoder.com/plugin/
  * Author: Md Nayeem Farid
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author URI: https://loyalcoder.com/
  *Requires at least: 4.7
- *Tested up to: 5.7
+ *Tested up to: 5.8
  *Requires PHP: 5.6
  *License: GPLv2
  *License URI: http://www.gnu.org/licenses/gpl-2.0.html
